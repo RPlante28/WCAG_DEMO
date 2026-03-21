@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1120">
+  <title>Web Content Accessibility Guidelines - Wikipedia</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico">
+</head>
+<body>
+
+<a class="mw-jump-link" href="#bodyContent">Jump to content</a>
+
+<!-- ===== HEADER ===== -->
+<header class="vector-header">
+  <div class="vector-header-start">
+    <a href="https://en.wikipedia.org/wiki/Main_Page" class="mw-logo">
+      <img class="mw-logo-icon" src="https://en.wikipedia.org/static/images/icons/enwiki-25.svg" alt="" width="50" height="50">
+      <span class="mw-logo-container">
+        <img class="mw-logo-wordmark" alt="Wikipedia" src="https://en.wikipedia.org/static/images/mobile/copyright/wikipedia-wordmark-en-25.svg" style="width:8.75em;height:1.375em;">
+        <img class="mw-logo-tagline" alt="The Free Encyclopedia" src="https://en.wikipedia.org/static/images/mobile/copyright/wikipedia-tagline-en-25.svg" style="width:8.75em;height:0.6875em;">
+      </span>
+    </a>
+  </div>
+  <div class="vector-header-end">
+    <div class="vector-search-box" role="search">
+      <form action="#" class="cdx-search-input">
+        <input type="search" class="cdx-text-input__input" placeholder="Search Wikipedia" aria-label="Search Wikipedia">
+        <button class="cdx-button cdx-search-input__end-button" type="submit">Search</button>
+      </form>
+    </div>
+    <nav class="vector-user-links" aria-label="Personal tools">
+      <a href="#">Donate</a>
+      <a href="#">Create account</a>
+      <a href="#">Log in</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== PAGE CONTAINER ===== -->
+<div class="mw-page-container">
+  <div class="mw-page-container-inner">
+
+    <!-- ===== TOC SIDEBAR (left) ===== -->
+    <div class="vector-column-start">
+      <nav class="vector-toc" aria-label="Contents">
+        <h2 class="vector-toc-header">Contents</h2>
+        <ul class="vector-toc-contents">
+          <li class="vector-toc-level-1"><a href="#"><span class="vector-toc-text">(Top)</span></a></li>
+          <li class="vector-toc-level-1">
+            <a href="#History"><span class="vector-toc-numb">1</span> <span>History</span></a>
+            <ul>
+              <li class="vector-toc-level-2"><a href="#Earlier_guidelines"><span class="vector-toc-numb">1.1</span> <span>Earlier guidelines (1995–1998)</span></a></li>
+              <li class="vector-toc-level-2"><a href="#Version_1_history"><span class="vector-toc-numb">1.2</span> <span>Version 1 (1999–2000)</span></a></li>
+              <li class="vector-toc-level-2"><a href="#Version_2_history"><span class="vector-toc-numb">1.3</span> <span>Version 2 (2001–present)</span></a></li>
+              <li class="vector-toc-level-2"><a href="#Version_3_dev"><span class="vector-toc-numb">1.4</span> <span>Version 3 (under development)</span></a></li>
+            </ul>
+          </li>
+          <li class="vector-toc-level-1">
+            <a href="#Versions"><span class="vector-toc-numb">2</span> <span>Versions</span></a>
+            <ul>
+              <li class="vector-toc-level-2"><a href="#Version_1"><span class="vector-toc-numb">2.1</span> <span>Version 1</span></a></li>
+              <li class="vector-toc-level-2"><a href="#Version_2"><span class="vector-toc-numb">2.2</span> <span>Version 2</span></a></li>
+            </ul>
+          </li>
+          <li class="vector-toc-level-1">
+            <a href="#WCAG_referenced_by_law"><span class="vector-toc-numb">3</span> <span>WCAG referenced by law</span></a>
+            <ul>
+              <li class="vector-toc-level-2"><a href="#Australia"><span class="vector-toc-numb">3.1</span> <span>Australia</span></a></li>
+              <li class="vector-toc-level-2"><a href="#Canada"><span class="vector-toc-numb">3.2</span> <span>Canada</span></a></li>
+              <li class="vector-toc-level-2"><a href="#European_Union"><span class="vector-toc-numb">3.3</span> <span>European Union</span></a></li>
+              <li class="vector-toc-level-2"><a href="#Israel"><span class="vector-toc-numb">3.4</span> <span>Israel</span></a></li>
+              <li class="vector-toc-level-2"><a href="#Norway"><span class="vector-toc-numb">3.5</span> <span>Norway</span></a></li>
+              <li class="vector-toc-level-2"><a href="#United_Kingdom"><span class="vector-toc-numb">3.6</span> <span>United Kingdom</span></a></li>
+              <li class="vector-toc-level-2"><a href="#United_States"><span class="vector-toc-numb">3.7</span> <span>United States</span></a></li>
+            </ul>
+          </li>
+          <li class="vector-toc-level-1"><a href="#References"><span class="vector-toc-numb">4</span> <span>References</span></a></li>
+          <li class="vector-toc-level-1"><a href="#External_links"><span class="vector-toc-numb">5</span> <span>External links</span></a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="mw-content-container">
+      <main id="content" class="mw-body">
+
+        <!-- Page title bar -->
+        <header class="mw-body-header">
+          <h1 id="firstHeading" class="firstHeading">Web Content Accessibility Guidelines</h1>
+          <div class="vector-page-toolbar">
+            <nav class="vector-menu-tabs" aria-label="Namespaces">
+              <a href="#" class="selected">Article</a>
+              <a href="#">Talk</a>
+            </nav>
+            <nav class="vector-menu-tabs" aria-label="Views">
+              <a href="#" class="selected">Read</a>
+              <a href="#">Edit</a>
+              <a href="#">View history</a>
+            </nav>
+          </div>
+        </header>
+
+        <!-- Body content -->
+        <div id="bodyContent" class="vector-body">
+          <div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+
+          <div id="mw-content-text" class="mw-body-content">
+
+            <!-- INFOBOX -->
+            <table class="infobox">
+              <tbody>
+                <tr><th colspan="2" class="infobox-above">WCAG</th></tr>
+                <tr><td colspan="2" class="infobox-subheader">Web Content Accessibility Guidelines</td></tr>
+                <tr><td colspan="2" class="infobox-image">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/W3C%C2%AE_Icon.svg/250px-W3C%C2%AE_Icon.svg.png" alt="World Wide Web Consortium (W3C) logo" width="250">
+                  <div class="infobox-caption"><a href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium">World Wide Web Consortium</a> (W3C) logo</div>
+                </td></tr>
+                <tr><th scope="row" class="infobox-label">Abbreviation</th><td>WCAG</td></tr>
+                <tr><th scope="row" class="infobox-label">Status</th><td><a href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium#W3C_recommendation_(REC)">W3C Recommendation</a></td></tr>
+                <tr><th scope="row" class="infobox-label">Year started</th><td>January 1995</td></tr>
+                <tr><th scope="row" class="infobox-label">First published</th><td>9 May 1999</td></tr>
+                <tr><th scope="row" class="infobox-label">Latest version</th><td>2.2<br>October 5, 2023<sup><a href="#ref1">[1]</a></sup></td></tr>
+                <tr><th scope="row" class="infobox-label">Preview version</th><td>3.0<br>July 24, 2023<sup><a href="#ref2">[2]</a></sup></td></tr>
+                <tr><th scope="row" class="infobox-label">Organization</th><td><a href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium">W3C</a>, <a href="https://en.wikipedia.org/wiki/International_Organization_for_Standardization">ISO</a>, <a href="https://en.wikipedia.org/wiki/International_Electrotechnical_Commission">IEC</a></td></tr>
+                <tr><th scope="row" class="infobox-label">Committee</th><td>Accessibility Guidelines Working Group</td></tr>
+                <tr><th scope="row" class="infobox-label">Domain</th><td><a href="https://en.wikipedia.org/wiki/Web_accessibility">Web accessibility</a></td></tr>
+                <tr><th scope="row" class="infobox-label">Website</th><td><a href="https://www.w3.org/TR/WCAG22/">www.w3.org/TR/WCAG22/</a></td></tr>
+              </tbody>
+            </table>
+
+            <!-- LEAD -->
+            <p>The <b>Web Content Accessibility Guidelines</b> (<b>WCAG</b>) are part of a series published by the <a href="https://en.wikipedia.org/wiki/Web_Accessibility_Initiative">Web Accessibility Initiative</a> (WAI) of the <a href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium">World Wide Web Consortium</a> (W3C), the main international <a href="https://en.wikipedia.org/wiki/Standards_organization">standards organization</a> for the <a href="https://en.wikipedia.org/wiki/Internet">Internet</a>. They are a set of recommendations for improving <a href="https://en.wikipedia.org/wiki/Web_accessibility">web accessibility</a>, primarily for people with <a href="https://en.wikipedia.org/wiki/Disability">disabilities</a>—but also for all <a href="https://en.wikipedia.org/wiki/User_agent">user agents</a>, including highly limited devices, such as mobile phones. WCAG 2.0 was published in December 2008 and became an <a href="https://en.wikipedia.org/wiki/International_Organization_for_Standardization">ISO</a> standard, ISO/IEC 40500:2012 in October 2012.<sup><a href="#ref3">[3]</a></sup> WCAG 2.2 became a W3C Recommendation on 5 October 2023.<sup><a href="#ref1">[1]</a></sup></p>
+
+            <!-- ===== HISTORY ===== -->
+            <div class="mw-heading mw-heading2"><h2 id="History">History</h2></div>
+
+            <div class="mw-heading mw-heading3"><h3 id="Earlier_guidelines">Earlier guidelines (1995–1998)</h3></div>
+            <p>The first web accessibility guideline was compiled by <a href="https://en.wikipedia.org/w/index.php?title=Gregg_Vanderheiden&action=edit&redlink=1" class="new">Gregg Vanderheiden</a> and released in January 1995, just after the 1994 Second International Conference on the World-Wide Web (WWW II) in Chicago (where <a href="https://en.wikipedia.org/wiki/Tim_Berners-Lee">Tim Berners-Lee</a> first mentioned disability access in a keynote speech after seeing a pre-conference workshop on accessibility led by <a href="https://en.wikipedia.org/w/index.php?title=Mike_Paciello&action=edit&redlink=1" class="new">Mike Paciello</a>).<sup><a href="#ref4">[4]</a></sup></p>
+            <p>Over 38 different Web access guidelines followed from various authors and organizations over the next few years.<sup><a href="#ref5">[5]</a></sup> These were brought together in the <i>Unified Web Site Accessibility Guidelines</i> compiled at the <a href="https://en.wikipedia.org/wiki/University_of_Wisconsin%E2%80%93Madison">University of Wisconsin–Madison</a>.<sup><a href="#ref6">[6]</a></sup> Version 8 of the <i>Unified Web Site Accessibility Guidelines</i>, published in 1998, served as the starting point for the W3C's WCAG 1.0.<sup><a href="#ref7">[7]</a></sup></p>
+
+            <div class="mw-heading mw-heading3"><h3 id="Version_1_history">Version 1 (1999–2000)</h3></div>
+            <p>The WCAG 1.0 were published and became a <a href="https://en.wikipedia.org/wiki/W3C_recommendation">W3C recommendation</a> on 5 May 1999. In February 2008, The WCAG Samurai, a group of developers independent of the W3C, and led by <a href="https://en.wikipedia.org/w/index.php?title=Joe_Clark_(writer)&action=edit&redlink=1" class="new">Joe Clark</a>, published corrections for, and extensions to, the WCAG 1.0.<sup><a href="#ref8">[8]</a></sup></p>
+
+            <div class="mw-heading mw-heading3"><h3 id="Version_2_history">Version 2 (2001–present)</h3></div>
+            <p>The first concept proposal of WCAG 2.0 was published on 25 January 2001. In the following years new versions were published intended to solicit feedback from accessibility experts and members of the disability community. On 27 April 2006 a "Last Call Working Draft" was published.<sup><a href="#ref9">[9]</a></sup> Due to the many amendments that were necessary, WCAG 2.0 was published again as a concept proposal on 17 May 2007, followed by a second "Last Call Working Draft" on 11 December 2007.<sup><a href="#ref10">[10]</a></sup><sup><a href="#ref11">[11]</a></sup> In April 2008 the guidelines became a "Candidate Recommendation".<sup><a href="#ref12">[12]</a></sup> On 3 November 2008 the guidelines became a "Proposed Recommendation". WCAG 2.0 was published as a W3C Recommendation on 11 December 2008.<sup><a href="#ref13">[13]</a></sup><sup><a href="#ref14">[14]</a></sup> In October 2012, WCAG 2.0 were accepted by the <a href="https://en.wikipedia.org/wiki/International_Organization_for_Standardization">International Organization for Standardization</a> as an ISO International Standard, ISO/IEC 40500:2012.<sup><a href="#ref15">[15]</a></sup><sup><a href="#ref16">[16]</a></sup><sup><a href="#ref17">[17]</a></sup><sup><a href="#ref3">[3]</a></sup></p>
+            <p>In early 2014, WCAG 2.0's Level A and Level AA success criteria were incorporated as references in clause 9.2 ("Web content requirements") of the European standard <a href="https://en.wikipedia.org/wiki/EN_301_549">EN 301 549</a> published by <a href="https://en.wikipedia.org/wiki/ETSI">ETSI</a>.<sup><a href="#ref18">[18]</a></sup></p>
+            <p>WCAG 2.2 became a W3C Recommendation on 5 October 2023.<sup><a href="#ref1">[1]</a></sup> Nine new criteria make their definitive debut in this new version of the WCAG standard. New sections have also been introduced that detail aspects of the specification which may impact privacy and security.</p>
+
+            <div class="mw-heading mw-heading3"><h3 id="Version_3_dev">Version 3 (under development)</h3></div>
+            <p>In early 2021, the Accessibility Guidelines Working Group presented the first public working draft (FPWD) of the future WCAG 3.0, intended to provide a range of recommendations for making web content more accessible. As of November 2025, the WCAG 3.0 working draft was last updated in September 2025.<sup><a href="#ref21">[21]</a></sup> No part of WCAG 3.0 is an official recommendation at this time. WCAG 3.0 is a draft undergoing significant development efforts, and the expected release date as an official recommendation is not defined.</p>
+
+            <!-- ===== VERSIONS ===== -->
+            <div class="mw-heading mw-heading2"><h2 id="Versions">Versions</h2></div>
+
+            <div class="mw-heading mw-heading3"><h3 id="Version_1">Version 1</h3></div>
+            <p>WCAG 1.0 consist of 14 guidelines—each of which describes a general principle of accessible design. Each guideline covers a basic theme of web accessibility and is associated with one or more checkpoints that describes how to apply that guideline to particular webpage features.</p>
+            <ul>
+              <li>Guideline 1: Provide equivalent alternatives to auditory and visual content</li>
+              <li>Guideline 2: Do not rely on colour alone</li>
+              <li>Guideline 3: Use markup and style sheets, and do so properly</li>
+              <li>Guideline 4: Clarify natural language usage</li>
+              <li>Guideline 5: Create tables that transform gracefully</li>
+              <li>Guideline 6: Ensure that pages featuring new technologies transform gracefully</li>
+              <li>Guideline 7: Ensure user control of time sensitive content changes</li>
+              <li>Guideline 8: Ensure direct accessibility of embedded user interfaces</li>
+              <li>Guideline 9: Design for device independence</li>
+              <li>Guideline 10: Use interim solutions</li>
+              <li>Guideline 11: Use <a href="https://en.wikipedia.org/wiki/W3C">W3C</a> technologies and guidelines</li>
+              <li>Guideline 12: Provide context and orientation information</li>
+              <li>Guideline 13: Provide clear navigation mechanisms</li>
+              <li>Guideline 14: Ensure that documents are clear and simple</li>
+            </ul>
+            <p>Each of the in total 65 WCAG 1.0 checkpoints has an assigned <i>priority level</i> based on the checkpoint's impact on accessibility:</p>
+            <ul>
+              <li>Priority 1: Web developers <b>must</b> satisfy these requirements, otherwise it will be impossible for one or more groups to access the Web content. Conformance to this level is described as <i>A.</i></li>
+              <li>Priority 2: Web developers <b>should</b> satisfy these requirements, otherwise some groups will find it difficult to access the Web content. Conformance to this level is described as <i>AA</i> or <i>Double-A.</i></li>
+              <li>Priority 3: Web developers <b>may</b> satisfy these requirements to make it easier for some groups to access the Web content. Conformance to this level is described as <i>AAA</i> or <i>Triple-A.</i></li>
+            </ul>
+
+            <div class="mw-heading mw-heading3"><h3 id="Version_2">Version 2</h3></div>
+            <p>WCAG 2.0 consist of twelve guidelines organized under four principles (websites must be <i>perceivable</i>, <i>operable</i>, <i>understandable</i>, and <i>robust</i>). Each guideline has testable success criteria (61 in all).<sup><a href="#ref22">[22]</a></sup> The W3C's Techniques for WCAG 2.0<sup><a href="#ref23">[23]</a></sup> is a list of techniques that help authors meet the guidelines and success criteria. The techniques are periodically updated whereas the principles, guidelines and success criteria are stable and do not change.<sup><a href="#ref24">[24]</a></sup> WCAG 2.0 uses the same three <i>levels of conformance</i> (<i>A, AA, AAA</i>) as WCAG 1.0, but has redefined them. The WCAG working group maintains an extensive list of web accessibility techniques and common failure cases for WCAG 2.0.<sup><a href="#ref25">[25]</a></sup></p>
+            <p>WCAG 2.1 is backwards-compatible with WCAG 2.0, which it extends with a further 17 success criteria.</p>
+            <p>WCAG 2.2 is backwards-compatible with WCAG 2.1 extending it a further nine success criteria and with WCAG 2.0 extending it a further 26 success criteria (including the 17 success criteria introduced by WCAG 2.1). Additionally, WCAG 2.2 has deprecated and removed the 4.1.1 success criterion.<sup><a href="#ref26">[26]</a></sup></p>
+
+            <!-- WCAG 2 GUIDELINES TABLE -->
+            <table class="wikitable sortable">
+              <caption>WCAG 2 Guidelines</caption>
+              <thead>
+                <tr><th scope="col">Principles</th><th scope="col">Guidelines</th><th scope="col">Success Criteria</th><th scope="col">Conformance Level</th><th scope="col">Revision</th></tr>
+              </thead>
+              <tbody>
+                <tr><th rowspan="29" scope="row">1: Perceivable</th><td>1.1 Text Alternatives</td><td>1.1.1 Non-text Content</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td rowspan="9">1.2 Time-based Media</td><td>1.2.1 Audio-only and Video-only (Prerecorded)</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>1.2.2 Captions (Prerecorded)</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>1.2.3 Audio Description or Media Alternative (Prerecorded)</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>1.2.4 Captions (Live)</td><td class="level-aa">AA</td><td>2.0</td></tr>
+                <tr><td>1.2.5 Audio Description (Prerecorded)</td><td class="level-aa">AA</td><td>2.0</td></tr>
+                <tr><td>1.2.6 Sign Language (Prerecorded)</td><td class="level-aaa">AAA</td><td>2.0</td></tr>
+                <tr><td>1.2.7 Extended Audio Description (Prerecorded)</td><td class="level-aaa">AAA</td><td>2.0</td></tr>
+                <tr><td>1.2.8 Media Alternative (Prerecorded)</td><td class="level-aaa">AAA</td><td>2.0</td></tr>
+                <tr><td>1.2.9 Audio-only (Live)</td><td class="level-aaa">AAA</td><td>2.0</td></tr>
+                <tr><td rowspan="6">1.3 Adaptable</td><td>1.3.1 Info and Relationships</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>1.3.2 Meaningful Sequence</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>1.3.3 Sensory Characteristics</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>1.3.4 Orientation</td><td class="level-aa">AA</td><td>2.1</td></tr>
+                <tr><td>1.3.5 Identify Input Purpose</td><td class="level-aa">AA</td><td>2.1</td></tr>
+                <tr><td>1.3.6 Identify Purpose</td><td class="level-aaa">AAA</td><td>2.1</td></tr>
+                <tr><td rowspan="13">1.4 Distinguishable</td><td>1.4.1 Use of Color</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>1.4.2 Audio Control</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>1.4.3 Contrast (Minimum)</td><td class="level-aa">AA</td><td>2.0</td></tr>
+                <tr><td>1.4.4 Resize text</td><td class="level-aa">AA</td><td>2.0</td></tr>
+                <tr><td>1.4.5 Images of Text</td><td class="level-aa">AA</td><td>2.0</td></tr>
+                <tr><td>1.4.6 Contrast (Enhanced)</td><td class="level-aaa">AAA</td><td>2.0</td></tr>
+                <tr><td>1.4.7 Low or No Background Audio</td><td class="level-aaa">AAA</td><td>2.0</td></tr>
+                <tr><td>1.4.8 Visual Presentation</td><td class="level-aaa">AAA</td><td>2.0</td></tr>
+                <tr><td>1.4.9 Images of Text (No Exception)</td><td class="level-aaa">AAA</td><td>2.0</td></tr>
+                <tr><td>1.4.10 Reflow</td><td class="level-aa">AA</td><td>2.1</td></tr>
+                <tr><td>1.4.11 Non-Text Contrast</td><td class="level-aa">AA</td><td>2.1</td></tr>
+                <tr><td>1.4.12 Text Spacing</td><td class="level-aa">AA</td><td>2.1</td></tr>
+                <tr><td>1.4.13 Content on Hover or Focus</td><td class="level-aa">AA</td><td>2.1</td></tr>
+
+                <tr><th rowspan="20" scope="row">2: Operable</th><td rowspan="4">2.1 Keyboard Accessible</td><td>2.1.1 Keyboard</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>2.1.2 No Keyboard Trap</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>2.1.3 Keyboard (No Exception)</td><td class="level-aaa">AAA</td><td>2.0</td></tr>
+                <tr><td>2.1.4 Character Key Shortcuts</td><td class="level-a">A</td><td>2.1</td></tr>
+                <tr><td rowspan="6">2.2 Enough Time</td><td>2.2.1 Timing Adjustable</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>2.2.2 Pause, Stop, Hide</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>2.2.3 No Timing</td><td class="level-aaa">AAA</td><td>2.0</td></tr>
+                <tr><td>2.2.4 Interruptions</td><td class="level-aaa">AAA</td><td>2.0</td></tr>
+                <tr><td>2.2.5 Re-authenticating</td><td class="level-aaa">AAA</td><td>2.0</td></tr>
+                <tr><td>2.2.6 Timeouts</td><td class="level-aaa">AAA</td><td>2.1</td></tr>
+                <tr><td rowspan="3">2.3 Seizures</td><td>2.3.1 Three Flashes or Below Threshold</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>2.3.2 Three Flashes</td><td class="level-aaa">AAA</td><td>2.0</td></tr>
+                <tr><td>2.3.3 Animation from Interactions</td><td class="level-aaa">AAA</td><td>2.1</td></tr>
+                <tr><td rowspan="7">2.4 Navigable</td><td>2.4.1 Bypass Blocks</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>2.4.2 Page Titled</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>2.4.3 Focus Order</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>2.4.4 Link Purpose (In Context)</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>2.4.5 Multiple Ways</td><td class="level-aa">AA</td><td>2.0</td></tr>
+                <tr><td>2.4.7 Focus Visible</td><td class="level-aa">AA</td><td>2.0</td></tr>
+                <tr><td>2.4.11 Focus Not Obscured (Minimum)</td><td class="level-aa">AA</td><td>2.2</td></tr>
+
+                <tr><th rowspan="15" scope="row">3: Understandable</th><td rowspan="2">3.1 Readable</td><td>3.1.1 Language of Page</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>3.1.2 Language of Parts</td><td class="level-aa">AA</td><td>2.0</td></tr>
+                <tr><td rowspan="6">3.2 Predictable</td><td>3.2.1 On Focus</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>3.2.2 On Input</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>3.2.3 Consistent Navigation</td><td class="level-aa">AA</td><td>2.0</td></tr>
+                <tr><td>3.2.4 Consistent Identification</td><td class="level-aa">AA</td><td>2.0</td></tr>
+                <tr><td>3.2.5 Change on Request</td><td class="level-aaa">AAA</td><td>2.0</td></tr>
+                <tr><td>3.2.6 Consistent Help</td><td class="level-a">A</td><td>2.2</td></tr>
+                <tr><td rowspan="7">3.3 Input Assistance</td><td>3.3.1 Error Identification</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>3.3.2 Labels or Instructions</td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td>3.3.3 Error Suggestion</td><td class="level-aa">AA</td><td>2.0</td></tr>
+                <tr><td>3.3.4 Error Prevention (Legal, Financial, Data)</td><td class="level-aa">AA</td><td>2.0</td></tr>
+                <tr><td>3.3.7 Redundant Entry</td><td class="level-a">A</td><td>2.2</td></tr>
+                <tr><td>3.3.8 Accessible Authentication (Minimum)</td><td class="level-aa">AA</td><td>2.2</td></tr>
+                <tr><td>3.3.9 Accessible Authentication (Enhanced)</td><td class="level-aaa">AAA</td><td>2.2</td></tr>
+
+                <tr><th rowspan="3" scope="row">4: Robust</th><td rowspan="3">4.1 Compatible</td><td><s>4.1.1 Parsing</s> (deprecated by WCAG 2.2<sup><a href="#ref26">[26]</a></sup>)</td><td class="level-a"><s>A</s></td><td><s>2.0</s></td></tr>
+                <tr><td><a href="https://www.w3.org/TR/WCAG22/#name-role-value">4.1.2 Name, Role, Value</a></td><td class="level-a">A</td><td>2.0</td></tr>
+                <tr><td><a href="https://www.w3.org/TR/WCAG22/#status-messages">4.1.3 Status Messages</a></td><td class="level-aa">AA</td><td>2.1</td></tr>
+              </tbody>
+            </table>
+
+            <!-- ===== WCAG REFERENCED BY LAW ===== -->
+            <div class="mw-heading mw-heading2"><h2 id="WCAG_referenced_by_law">WCAG referenced by law</h2></div>
+            <p>This section only refers to specific instances where WCAG, or a closely related derivative thereof, is specifically codified into law. There are many laws relating to accessibility in general and which may apply to websites, though they do not necessarily refer to WCAG. It is nevertheless considered prudent to follow WCAG guidelines to help protect against potential lawsuits relating to accessibility.<sup><a href="#ref27">[27]</a></sup></p>
+            <p>Some jurisdictions are moving to build legislation around the latest recommended release of the Web Content Accessibility Guidelines by the World Wide Web Consortium's Web Accessibility Initiative. This ensures that the policies remain up to date.</p>
+
+            <div class="mw-heading mw-heading3"><h3 id="Australia">Australia</h3></div>
+            <p>The Australian government has also mandated via the <a href="https://en.wikipedia.org/wiki/Disability_Discrimination_Act_1992">Disability Discrimination Act 1992</a> that all Australian government websites meet the WCAG 2.0 level A accessibility requirements.<sup><a href="#ref28">[28]</a></sup></p>
+
+            <div class="mw-heading mw-heading3"><h3 id="Canada">Canada</h3></div>
+            <p>Regulations under the <a href="https://en.wikipedia.org/wiki/Accessibility_for_Ontarians_with_Disabilities_Act,_2005">Accessibility for Ontarians with Disabilities Act, 2005</a> require that public web content of certain Ontario organizations complies with WCAG 2.0 Level AA.</p>
+            <p>In 2010 <a href="https://en.wikipedia.org/wiki/Donna_Jodhan">Donna Jodhan</a> brought a case to the <a href="https://en.wikipedia.org/wiki/Supreme_Court_of_Canada">Supreme Court of Canada</a> against the <a href="https://en.wikipedia.org/wiki/Government_of_Canada">Government of Canada</a>. In 2012 the Supreme Court arrived at what is now known as the Jodhan decision<sup><a href="#ref29">[29]</a></sup> caused the Canadian federal government to require all online web pages, documents and videos available externally and internally to meet the accessibility requirements of WCAG 2.0.<sup><a href="#ref30">[30]</a></sup></p>
+            <p>In 2019, the Government of Canada implemented the <a href="https://en.wikipedia.org/wiki/Accessible_Canada_Act">Accessible Canada Act</a>.</p>
+
+            <div class="mw-heading mw-heading3"><h3 id="European_Union">European Union</h3></div>
+            <p><a href="https://en.wikipedia.org/wiki/Web_Accessibility_Directive">Directive 2016/2102</a><sup><a href="#ref31">[31]</a></sup> requires websites and mobile applications of public sector (i.e. government) bodies to conform to WCAG 2.1 Level AA.<sup><a href="#ref32">[32]</a></sup><sup><a href="#ref33">[33]</a></sup> As of June 2021, the directive covers websites and mobile apps.<sup><a href="#ref34">[34]</a></sup> The <a href="https://en.wikipedia.org/wiki/European_Parliament">European Parliament</a> approved the directive in October 2016,<sup><a href="#ref31">[31]</a></sup> the <a href="https://en.wikipedia.org/wiki/European_Commission">European Commission</a> updated the WCAG reference from 2.0 to 2.1 in December 2018.<sup><a href="#ref33">[33]</a></sup></p>
+            <p>The <a href="https://en.wikipedia.org/wiki/European_Accessibility_Act">European Accessibility Act</a> (EAA) became legally applicable in EU member states on 28 June 2025. The EAA will require websites, apps, ebooks, ecommerce platforms, PDFs and others to conform to WCAG 2.1 AA criteria within the EU.</p>
+
+            <div class="mw-heading mw-heading3"><h3 id="Israel">Israel</h3></div>
+            <p>The Israeli Ministry of Justice published regulations in early 2014, requiring Internet websites to comply with Israeli Standard 5568, which is based on the W3C Web Content Accessibility Guidelines 2.0.</p>
+            <p>The main differences between the Israeli standard and the W3C standard concern the requirements to provide captions and texts for audio and video media. The Israeli standards are somewhat more lenient, reflecting the current technical difficulties in providing such captions and texts in Hebrew.<sup><a href="#ref35">[35]</a></sup><sup><a href="#ref36">[36]</a></sup></p>
+
+            <div class="mw-heading mw-heading3"><h3 id="Norway">Norway</h3></div>
+            <p>In 2013, the Ministry of Public Administration and Church Affairs announced <i><a href="https://lovdata.no/dokument/SF/forskrift/2013-06-21-732">Regulations on universal design of information and communication technology (ICT) solutions</a></i>, under the <i>Equality and Accessibility Act.</i> The regulations obliges both private and public bodies to adhere to universal design and require that "web solutions shall at least be designed in accordance with the WCAG 2.0 standard, at levels A and AA, with the exception of success criteria 1.2.3, 1.2.4 and 1.2.5, or an equivalent standard."</p>
+
+            <div class="mw-heading mw-heading3"><h3 id="United_Kingdom">United Kingdom</h3></div>
+            <p>In September 2018, website and mobile app accessibility regulations for the public sector came into force, titled the <i>Public Sector Bodies (Websites and Mobile Applications) Accessibility Regulations 2018</i>, which currently applies the WCAG 2.1 AA level to websites operated by the "public sector", which means government agencies or organizations funded by the government, with some exclusions. The UK government published <i>Understanding accessibility requirements for public sector bodies</i><sup><a href="#ref37">[37]</a></sup> to guide compliance.</p>
+            <p>The UK government is yet to announce if it will confirm the European Accessibility Act (EAA) into local law, but companies in the UK and outside of the EU will need to comply with EAA if they sell products or services in any EU member state.<sup><a href="#ref38">[38]</a></sup></p>
+
+            <div class="mw-heading mw-heading3"><h3 id="United_States">United States</h3></div>
+            <p>In 2013, the <a href="https://en.wikipedia.org/wiki/US_Department_of_Transportation">US Department of Transportation</a> amended its regulations implementing the <a href="https://en.wikipedia.org/wiki/Air_Carrier_Access_Act">Air Carrier Access Act</a> (ACAA) to require Airlines make their websites accessible, requiring conformance to WCAG 2.0, meeting Level AA Success Criteria.<sup><a href="#ref39">[39]</a></sup></p>
+            <p>In January 2017, the <a href="https://en.wikipedia.org/wiki/US_Access_Board">US Access Board</a> approved a final rule to update <a href="https://en.wikipedia.org/wiki/Section_508_Amendment_to_the_Rehabilitation_Act_of_1973">Section 508 of the Rehabilitation Act of 1973</a>. The new rule adopts seventeen WCAG 2.0 success criteria, but 22 of the 38 existing A-level and AA-level criteria were already covered by existing Section 508 guidelines. The rule requires adherence to the new standards twelve months from its date of publication in the federal register.<sup><a href="#ref40">[40]</a></sup><sup><a href="#ref41">[41]</a></sup></p>
+            <p>In December, 2021 the 11th circuit court vacated a sometimes-cited case from 2017, which had referred to the WCAG guidelines as "industry standard". The 11th circuit court's ruling rendered the 2017 case moot.<sup><a href="#ref42">[42]</a></sup> As such, the case is no longer citable as caselaw. On March 2, 2022, the 11th circuit court refused to rehear the case.</p>
+            <p>On April 24, 2024, the Federal Register published the Department of Justice's (DOJ) final rule updating its regulations for Title II of the Americans with Disabilities Act (ADA). The final rule states that the Web Content Accessibility Guidelines (WCAG) Version 2.1, Level AA is the technical standard for state and local governments' web content and mobile apps.<sup><a href="#ref43">[43]</a></sup></p>
+
+            <!-- ===== REFERENCES ===== -->
+            <div class="mw-heading mw-heading2"><h2 id="References">References</h2></div>
+            <ol class="references">
+              <li id="ref1">Campbell, Alastair; Adams, Chuck; Montgomery, Rachael Bradley; Cooper, Michael; Kirkpatrick, Andrew, eds. (5 October 2023). <a href="https://www.w3.org/TR/WCAG22/">"Web Content Accessibility Guidelines (WCAG) 2.2"</a>. W3C.</li>
+              <li id="ref2">Spellman, Jeanne; et al. (24 July 2023). <a href="https://www.w3.org/TR/wcag-3.0/">"Web Content Accessibility Guidelines (WCAG) 3.0"</a>. W3C.</li>
+              <li id="ref3"><a href="https://www.iso.org/standard/58625.html">"ISO/IEC 40500:2012"</a>. ISO. 2012.</li>
+              <li id="ref4">Vanderheiden, Gregg C. (31 January 1995). "Design of HTML (Mosaic) Pages to Increase their Accessibility to Users with Disabilities". Trace Center, University of Wisconsin–Madison.</li>
+              <li id="ref5">"References: Designing Accessible HTML Pages". World Wide Web Consortium.</li>
+              <li id="ref6">"Trace Center". University of Wisconsin–Madison.</li>
+              <li id="ref7">Vanderheiden, Gregg C.; Chisholm, Wendy A. (20 January 1998). "Unified Web Site Accessibility Guidelines". Trace Center.</li>
+              <li id="ref8">"Home Page". WCAG Samurai.</li>
+              <li id="ref9">Caldwell, Ben; et al. (27 April 2006). "WCAG 2.0 – W3C Working Draft 27 April 2006". W3C.</li>
+              <li id="ref10">Caldwell, Ben; et al. (17 May 2007). "WCAG 2.0 – W3C Working Draft 17 May 2007". W3C.</li>
+              <li id="ref11">Caldwell, Ben; et al. (11 December 2007). "WCAG 2.0 – W3C Working Draft 11 December 2007". W3C.</li>
+              <li id="ref12">"WCAG 2.0 Candidate Recommendation Implementation Information". W3C.</li>
+              <li id="ref13">"Web Content Accessibility Guidelines (WCAG) 2.0 – W3C Recommendation 11 December 2008". W3C.</li>
+              <li id="ref14">W3C: "W3C Web Standard Defines Accessibility for Next Generation Web" (press release, 11 December 2008).</li>
+              <li id="ref15">Henry, Shawn (15 October 2012). "WCAG 2.0 is now also ISO/IEC 40500!". W3C.</li>
+              <li id="ref16">"W3C Web Content Accessibility Guidelines 2.0 approved as an ISO/IEC International Standard". W3C. 15 October 2012.</li>
+              <li id="ref17">"ISO/IEC 40500:2012". ISO.</li>
+              <li id="ref18">ETSI: EN 301 549 V1.1.1 (2014-02).</li>
+              <li id="ref19">CEN-CENELEC: "New European Standard will help to make ICT products and services accessible for all". 2014.</li>
+              <li id="ref20">CEN-CENELEC: Mandate 376.</li>
+              <li id="ref21"><a href="https://www.w3.org/TR/wcag-3.0/">"W3C Accessibility Guidelines (WCAG) 3.0"</a>. W3C. Retrieved 8 November 2025.</li>
+              <li id="ref22"><a href="https://www.w3.org/TR/WCAG20/">"Web Content Accessibility Guidelines (WCAG) 2.0"</a>. W3C.</li>
+              <li id="ref23">"Techniques for WCAG 2.0". W3C.</li>
+              <li id="ref24">"Understanding Techniques for WCAG Success Criteria". W3C.</li>
+              <li id="ref25">"Techniques for WCAG 2.0". W3C.</li>
+              <li id="ref26"><a href="https://www.w3.org/TR/WCAG22/#parsing">"WCAG 2.2 — Parsing (deprecated)"</a>. W3C.</li>
+              <li id="ref27">"Disabled access to websites under UK law". Out-Law.com. October 2011.</li>
+              <li id="ref28"><a href="https://australia.gov.au/accessibility">"Accessibility"</a>. Web Guide.</li>
+              <li id="ref29">"Jodhan decision". Ccdonline.ca. 30 May 2012.</li>
+              <li id="ref30">"Canadian Treasury Board Secretariat Standard on Web Accessibility". 1 August 2011.</li>
+              <li id="ref31">"Directive (EU) 2016/2102". Publications Office of the European Union. 26 October 2016.</li>
+              <li id="ref32">"Communication from the Commission to the European Parliament". 18 July 2016.</li>
+              <li id="ref33">"Commission Implementing Decision (EU) 2018/2048". 20 December 2018.</li>
+              <li id="ref34">"Directive (EU) 2016/2102, Article 12".</li>
+              <li id="ref35"><a href="https://www.gov.il/en/Departments/Guides/website_accessibility?chapterIndex=2">"Making the web accessible"</a>. Gov.il.</li>
+              <li id="ref36">"Website Accessibility Requirements". Israel Technology Law Blog.</li>
+              <li id="ref37"><a href="https://www.gov.uk/guidance/accessibility-requirements-for-public-sector-websites-and-apps">"Understanding accessibility requirements for public sector bodies"</a>. Central Digital &amp; Data Office. 22 August 2022.</li>
+              <li id="ref38">"How The European Accessibility Act may Impact UK Websites". 7 September 2023.</li>
+              <li id="ref39">"Nondiscrimination on the Basis of Disability in Air Travel". US Department of Transportation.</li>
+              <li id="ref40">"Information and Communication Technology (ICT) Final Standards and Guidelines" (PDF). US Access Board. 9 January 2017.</li>
+              <li id="ref41">"Final Regulatory Impact Analysis". US Access Board. 5 January 2017.</li>
+              <li id="ref42">"Eleventh Circuit Vacates Gil v. Winn-Dixie Opinion Due to Mootness".</li>
+              <li id="ref43"><a href="https://www.ada.gov/resources/2024-03-08-web-rule/">"Fact Sheet: New Rule on the Accessibility of Web Content and Mobile Apps"</a>. ADA.gov. 8 March 2024.</li>
+            </ol>
+
+            <!-- ===== EXTERNAL LINKS ===== -->
+            <div class="mw-heading mw-heading2"><h2 id="External_links">External links</h2></div>
+            <ul>
+              <li><a href="https://www.w3.org/TR/WCAG22/">W3C – Web Content Accessibility Guidelines (WCAG) 2.2</a></li>
+              <li><a href="https://www.w3.org/WAI/intro/wcag.php">W3C – Web Accessibility Initiative (WAI) introduction to WCAG</a></li>
+              <li><a href="https://wave.webaim.org">WAVE – Online accessibility validator</a></li>
+              <li><a href="https://webaim.org/standards/wcag/checklist">WCAG 2.0 checklist</a></li>
+              <li><a href="https://www.paciellogroup.com/the-history-of-digital-accessibility-and-why-it-matters/">The History of Digital Accessibility and Why it Matters</a></li>
+            </ul>
+
+            <!-- Categories -->
+            <div id="catlinks" class="catlinks">
+              <div class="mw-normal-catlinks">
+                <a href="https://en.wikipedia.org/wiki/Help:Category">Categories</a>:
+                <ul>
+                  <li><a href="https://en.wikipedia.org/wiki/Category:Web_accessibility">Web accessibility</a></li>
+                  <li><a href="https://en.wikipedia.org/wiki/Category:Game_accessibility">Game accessibility</a></li>
+                  <li><a href="https://en.wikipedia.org/wiki/Category:ISO_standards">ISO standards</a></li>
+                </ul>
+              </div>
+            </div>
+
+          </div><!-- end mw-content-text -->
+        </div><!-- end bodyContent -->
+      </main>
+    </div><!-- end mw-content-container -->
+
+    <!-- ===== RIGHT COLUMN (appearance) ===== -->
+    <div class="vector-column-end">
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="mw-footer">
+  <ul class="footer-info">
+    <li>This page was last edited on 1 February 2026, at 18:24 (UTC).</li>
+    <li>Text is available under the <a href="https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_Creative_Commons_Attribution-ShareAlike_4.0_International_License">Creative Commons Attribution-ShareAlike 4.0 License</a>; additional terms may apply.</li>
+  </ul>
+  <ul class="footer-places">
+    <li><a href="https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy">Privacy policy</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Wikipedia:About">About Wikipedia</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer">Disclaimers</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+    <li><a href="https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Universal_Code_of_Conduct">Code of Conduct</a></li>
+    <li><a href="https://developer.wikimedia.org">Developers</a></li>
+    <li><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+  </ul>
+  <ul class="footer-icons">
+    <li><a href="https://www.wikimedia.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.svg" alt="Wikimedia Foundation" width="84" height="29" loading="lazy"></a></li>
+    <li><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/w/resources/assets/poweredby_mediawiki.svg" alt="Powered by MediaWiki" width="88" height="31" loading="lazy"></a></li>
+  </ul>
+</footer>
+
+</body>
+</html>

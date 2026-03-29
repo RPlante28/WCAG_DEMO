@@ -1,0 +1,284 @@
+/* ================================================
+   Wikipedia Vector 2022 Skin — Faithful Recreation
+   ================================================ */
+
+/* === RESET === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* === BASE === */
+body {
+  font-family: 'Linux Libertine', 'Georgia', 'Times', 'Source Serif Pro', serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #202122;
+  background: #f8f9fa;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: #3366cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:visited { color: #795cb2; }
+a.new, a.new:visited { color: #d33; }
+a:focus-visible { outline: 2px solid #3366cc; outline-offset: 1px; }
+
+/* === SKIP LINK === */
+.mw-jump-link {
+  position: absolute; left: -9999px; top: auto;
+  background: #3366cc; color: #fff; padding: 8px 16px;
+  z-index: 10000; font-family: sans-serif; font-size: 14px;
+}
+.mw-jump-link:focus { position: fixed; left: 8px; top: 8px; }
+
+/* ================================================
+   HEADER
+   ================================================ */
+.vector-header {
+  background: #fff;
+  border-bottom: 1px solid #a7d7f9;
+  padding: 6px 0;
+  position: sticky; top: 0; z-index: 100;
+}
+.vector-header {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 99.75em; margin: 0 auto; padding: 8px 24px;
+}
+.vector-header-start { display: flex; align-items: center; }
+.mw-logo { display: flex; align-items: center; gap: 0; text-decoration: none; }
+.mw-logo-icon { width: 50px; height: 50px; }
+.mw-logo-container { display: flex; flex-direction: column; margin-left: 2px; }
+.mw-logo-wordmark { height: 18px; }
+.mw-logo-tagline { height: 11px; margin-top: 2px; }
+
+.vector-header-end { display: flex; align-items: center; gap: 16px; }
+.vector-search-box { flex: 0 1 500px; }
+.cdx-search-input { display: flex; }
+.cdx-text-input__input {
+  flex: 1; padding: 6px 10px 6px 32px;
+  border: 1px solid #a2a9b1; border-radius: 2px;
+  font-size: 14px; font-family: sans-serif;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20'%3E%3Cpath fill='%23555' d='M7.5 13a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 7.5a5.46 5.46 0 0 1-1.09 3.27l4.41 4.41-1.41 1.41-4.41-4.41A5.46 5.46 0 0 1 7.5 13.5a6 6 0 1 1 6-6z'/%3E%3C/svg%3E") 8px center no-repeat;
+}
+.cdx-search-input__end-button {
+  padding: 6px 14px; background: #f8f9fa; border: 1px solid #a2a9b1;
+  border-left: 0; cursor: pointer; font-size: 14px; font-family: sans-serif;
+  color: #202122; border-radius: 0 2px 2px 0;
+}
+.cdx-search-input__end-button:hover { background: #eaecf0; }
+
+.vector-user-links {
+  display: flex; gap: 12px; font-size: 12px; font-family: sans-serif;
+  white-space: nowrap;
+}
+
+/* ================================================
+   PAGE LAYOUT (Vector 2022 grid)
+   ================================================ */
+.mw-page-container {
+  max-width: 99.75em; margin: 0 auto;
+}
+.mw-page-container-inner {
+  display: grid;
+  grid-template-columns: 15.5em minmax(0, 1fr);
+  column-gap: 24px;
+  padding: 0 24px;
+}
+
+/* === TOC SIDEBAR === */
+.vector-column-start {
+  grid-column: 1;
+  padding-top: 24px;
+  position: sticky; top: 60px; align-self: start;
+  max-height: calc(100vh - 70px); overflow-y: auto;
+  font-family: sans-serif; font-size: 13px;
+}
+.vector-toc-header {
+  font-size: 14px; font-weight: 700; color: #54595d;
+  padding: 0 0 8px 0; margin-bottom: 4px;
+  border: none;
+}
+.vector-toc-contents {
+  list-style: none; padding: 0; margin: 0;
+}
+.vector-toc-contents li { padding: 0; }
+.vector-toc-contents a {
+  display: block; padding: 4px 8px; color: #54595d;
+  text-decoration: none; border-left: 3px solid transparent;
+  line-height: 1.4;
+}
+.vector-toc-contents a:hover { background: #eaecf0; color: #202122; }
+.vector-toc-contents .vector-toc-level-1 > a { font-weight: 600; }
+.vector-toc-contents .vector-toc-level-2 { padding-left: 16px; }
+.vector-toc-contents .vector-toc-level-2 > a { font-weight: normal; font-size: 12.5px; }
+.vector-toc-numb { color: #72777d; margin-right: 6px; }
+
+/* === MAIN CONTENT === */
+.mw-content-container { grid-column: 2; min-width: 0; }
+
+.mw-body { padding-bottom: 48px; }
+.mw-body-header { border-bottom: 1px solid #a2a9b1; margin-bottom: 24px; }
+.firstHeading {
+  font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+  font-size: 28px; font-weight: normal; color: #000;
+  line-height: 1.3; margin: 0; padding: 16px 0 0;
+}
+.vector-page-toolbar { display: flex; gap: 0; padding: 8px 0 0; }
+.vector-menu-tabs {
+  display: flex; gap: 0; font-family: sans-serif; font-size: 13px;
+  margin-right: 24px;
+}
+.vector-menu-tabs a {
+  display: block; padding: 6px 10px;
+  color: #3366cc; border-bottom: 2px solid transparent; margin-bottom: -1px;
+}
+.vector-menu-tabs a.selected { color: #202122; border-bottom-color: #3366cc; font-weight: 600; }
+.vector-menu-tabs a:hover { text-decoration: none; background: #eaecf0; }
+
+#siteSub {
+  font-family: sans-serif; font-size: 13px; color: #54595d;
+  margin-bottom: 16px;
+}
+
+/* ================================================
+   ARTICLE CONTENT
+   ================================================ */
+#mw-content-text p { margin-bottom: 0.8em; line-height: 1.6; }
+#mw-content-text ul, #mw-content-text ol { padding-left: 1.6em; margin-bottom: 0.8em; }
+#mw-content-text li { margin-bottom: 0.25em; line-height: 1.6; }
+#mw-content-text sup { font-size: 0.72em; line-height: 1; }
+#mw-content-text sup a { color: #3366cc; }
+
+/* === HEADINGS === */
+.mw-heading { clear: both; }
+.mw-heading2 { border-bottom: 1px solid #a2a9b1; margin: 1.6em 0 0.4em; }
+.mw-heading2 h2 {
+  font-family: 'Linux Libertine', 'Georgia', serif;
+  font-size: 1.5em; font-weight: normal; color: #000;
+  padding-bottom: 4px; margin: 0;
+}
+.mw-heading3 { margin: 1.2em 0 0.3em; }
+.mw-heading3 h3 {
+  font-family: 'Linux Libertine', 'Georgia', serif;
+  font-size: 1.17em; font-weight: bold; color: #000; margin: 0;
+}
+
+/* === INFOBOX === */
+.infobox {
+  float: right; clear: right;
+  width: 22em; margin: 0 0 1em 1.4em;
+  border: 1px solid #a2a9b1; background: #f8f9fa;
+  font-size: 88%; font-family: sans-serif;
+  border-spacing: 3px; line-height: 1.5;
+}
+.infobox-above {
+  background: #e0e0e0; padding: 0.4em;
+  font-size: 125%; font-weight: bold; text-align: center;
+}
+.infobox-subheader {
+  text-align: center; padding: 0.3em 0.4em;
+  font-size: 100%;
+}
+.infobox-image { text-align: center; padding: 0.4em; position: relative; }
+.infobox-image img { max-width: 100%; }
+.infobox-caption { font-size: 90%; padding-top: 4px; }
+.infobox-label {
+  font-weight: bold; text-align: left; vertical-align: top;
+  padding: 0.4em 0.4em 0.4em 0.6em;
+}
+.infobox td {
+  padding: 0.4em; vertical-align: top;
+  border-top: 1px solid #e0e0e0;
+}
+.infobox th { border-top: 1px solid #e0e0e0; }
+
+/* === WIKITABLE === */
+.wikitable {
+  border-collapse: collapse; margin: 1em 0;
+  font-size: 88%; font-family: sans-serif;
+  width: 100%; background: #f8f9fa; border: 1px solid #a2a9b1;
+}
+.wikitable caption {
+  font-weight: bold; font-size: 110%; padding: 6px;
+  text-align: left;
+}
+.wikitable th, .wikitable td {
+  border: 1px solid #a2a9b1; padding: 0.2em 0.4em;
+  text-align: left; vertical-align: top;
+}
+.wikitable th {
+  background: #eaecf0; font-weight: bold; text-align: left;
+}
+.wikitable th[scope="row"] { text-align: left; font-weight: bold; }
+
+/* Conformance level color coding (matches real Wikipedia) */
+.level-a {
+  background: #c96; color: #000;
+  text-align: center; vertical-align: middle;
+}
+.level-aa {
+  background: #c0c0c0; color: #000;
+  text-align: center; vertical-align: middle;
+}
+.level-aaa {
+  background: #ffd700; color: #000;
+  text-align: center; vertical-align: middle;
+}
+
+/* === REFERENCES === */
+.references {
+  font-size: 90%; font-family: sans-serif;
+  column-width: 30em; line-height: 1.5;
+  padding-left: 2em;
+}
+.references li { margin-bottom: 0.4em; word-wrap: break-word; }
+
+/* === CATEGORIES === */
+#catlinks {
+  border: 1px solid #a2a9b1; background: #f8f9fa;
+  padding: 5px 10px; margin-top: 1em;
+  font-size: 88%; font-family: sans-serif; clear: both;
+}
+.mw-normal-catlinks { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px; }
+.mw-normal-catlinks ul { display: flex; flex-wrap: wrap; gap: 4px; list-style: none; padding: 0; margin: 0; }
+.mw-normal-catlinks li::after { content: " | "; color: #a2a9b1; }
+.mw-normal-catlinks li:last-child::after { content: ""; }
+
+/* ================================================
+   FOOTER
+   ================================================ */
+.mw-footer {
+  border-top: 1px solid #a2a9b1;
+  padding: 1em 24px;
+  font-size: 12px; font-family: sans-serif; color: #54595d;
+  max-width: 99.75em; margin: 0 auto;
+}
+.footer-info { list-style: none; margin-bottom: 0.8em; }
+.footer-info li { margin-bottom: 0.3em; }
+.footer-info a { color: #3366cc; }
+.footer-places { display: flex; flex-wrap: wrap; gap: 4px 16px; list-style: none; margin-bottom: 0.8em; }
+.footer-places a { color: #3366cc; }
+.footer-icons { display: flex; gap: 12px; list-style: none; align-items: center; }
+.footer-icons img { vertical-align: middle; }
+
+/* Demo page: room for fixed toggle panel */
+body.demo-page {
+  padding-right: min(300px, 34vw);
+}
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+@media (max-width: 1000px) {
+  .mw-page-container-inner {
+    grid-template-columns: 1fr;
+  }
+  .vector-column-start { display: none; }
+  .mw-content-container { grid-column: 1; }
+  .infobox { float: none; width: 100%; margin: 0 0 1em 0; }
+}
+@media (max-width: 720px) {
+  .vector-header { padding: 8px 12px; flex-wrap: wrap; gap: 8px; }
+  .vector-search-box { flex: 1 1 100%; order: 3; }
+  .mw-page-container-inner { padding: 0 12px; }
+  .firstHeading { font-size: 24px; }
+  .wikitable { font-size: 80%; }
+  .references { column-width: auto; }
+}

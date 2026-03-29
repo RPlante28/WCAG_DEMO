@@ -1,0 +1,663 @@
+/* WCAG demo — toggle panel, broken states, fake toggles, modal */
+
+/* --- Top-of-article demo strip (video, form, distractions) --- */
+.demo-top-block {
+  display: flow-root;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eaecf0;
+}
+
+/* --- Toggle panel (fixed right) --- */
+.demo-toggle-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(320px, 100vw);
+  max-height: 100vh;
+  overflow-y: auto;
+  z-index: 20000;
+  background: #fff;
+  border-left: 1px solid #a2a9b1;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.08);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.demo-toggle-panel__header {
+  position: sticky;
+  top: 0;
+  background: #f8f9fa;
+  border-bottom: 1px solid #a2a9b1;
+  padding: 12px 14px;
+  z-index: 1;
+}
+.demo-toggle-panel__header h2 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  color: #202122;
+}
+.demo-toggle-panel__intro {
+  margin: 0;
+  font-size: 12px;
+  color: #54595d;
+}
+.demo-toggle-list {
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+}
+.demo-toggle-item {
+  padding: 10px 14px;
+  border-bottom: 1px solid #eaecf0;
+}
+.demo-toggle-item label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #202122;
+}
+.demo-toggle-item .desc {
+  display: block;
+  font-weight: 400;
+  font-size: 11px;
+  color: #72777d;
+  margin-top: 4px;
+  margin-left: 44px;
+}
+.demo-switch {
+  position: relative;
+  flex-shrink: 0;
+  width: 40px;
+  height: 22px;
+}
+.demo-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.demo-switch__ui {
+  position: absolute;
+  inset: 0;
+  background: #c8ccd1;
+  border-radius: 11px;
+  transition: background 0.2s;
+}
+.demo-switch__ui::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 2px;
+  top: 2px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.demo-switch input:checked + .demo-switch__ui {
+  background: #3366cc;
+}
+.demo-switch input:checked + .demo-switch__ui::after {
+  transform: translateX(18px);
+}
+.demo-toggle-panel__actions {
+  padding: 12px 14px 16px;
+  border-top: 1px solid #a2a9b1;
+  background: #f8f9fa;
+}
+.demo-toggle-panel__actions button {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  border: 1px solid #3366cc;
+  background: #3366cc;
+  color: #fff;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.demo-toggle-panel__actions button:hover {
+  background: #2952a3;
+}
+.demo-toggle-panel__actions button:focus-visible {
+  outline: 2px solid #3366cc;
+  outline-offset: 2px;
+}
+
+/* --- Language badge (3.1.1) --- */
+.demo-lang-badge {
+  position: fixed;
+  bottom: 12px;
+  left: 12px;
+  z-index: 15000;
+  font-size: 11px;
+  font-family: monospace;
+  background: #eaf3ff;
+  color: #202122;
+  border: 1px solid #3366cc;
+  padding: 4px 8px;
+  border-radius: 2px;
+  display: none;
+}
+body.fix-lang .demo-lang-badge {
+  display: block;
+}
+
+/* --- Cookie popup --- */
+.demo-cookie-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 19999;
+  display: none;
+}
+body:not(.fix-pause) .demo-cookie-overlay[data-active="true"] {
+  display: block;
+}
+.demo-cookie-banner {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 520px;
+  width: calc(100% - 48px);
+  background: #fff;
+  border: 1px solid #a2a9b1;
+  padding: 16px 20px;
+  z-index: 20001;
+  font-family: sans-serif;
+  font-size: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+body:not(.fix-pause) .demo-cookie-banner[data-active="true"] {
+  display: block;
+}
+.demo-cookie-banner p {
+  margin: 0 0 12px;
+}
+.demo-cookie-dismiss {
+  float: right;
+  font-size: 10px;
+  color: #eaecf0;
+  background: #f8f9fa;
+  border: 1px solid #eaecf0;
+  padding: 2px 6px;
+  cursor: pointer;
+  font-family: inherit;
+}
+body.fix-pause .demo-cookie-dismiss {
+  color: #202122;
+  background: #3366cc;
+  color: #fff;
+  border-color: #3366cc;
+  font-size: 14px;
+  padding: 8px 16px;
+  float: none;
+}
+
+/* --- Seizure-risk banner & tickers (2.2.2) --- */
+.demo-seizure-banner {
+  display: none;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 700;
+  padding: 8px;
+  animation: demo-seizure-flash 0.35s linear infinite;
+}
+body:not(.fix-pause) .demo-seizure-banner {
+  display: block;
+}
+@keyframes demo-seizure-flash {
+  0%, 100% { background: #f00; color: #ff0; }
+  33% { background: #0ff; color: #000; }
+  66% { background: #f0f; color: #fff; }
+}
+
+.demo-ticker-row {
+  display: none;
+  overflow: hidden;
+  font-family: sans-serif;
+  font-size: 12px;
+  background: #222;
+  color: #0f0;
+  white-space: nowrap;
+}
+body:not(.fix-pause) .demo-ticker-row {
+  display: block;
+}
+.demo-ticker {
+  display: inline-block;
+  padding: 6px 0;
+  animation: demo-ticker-l 18s linear infinite;
+}
+.demo-ticker--rev {
+  animation-name: demo-ticker-r;
+}
+@keyframes demo-ticker-l {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes demo-ticker-r {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* --- Sidebar ad & shake (2.2.2) --- */
+.demo-sidebar-ad {
+  position: fixed;
+  right: min(304px, 34vw);
+  bottom: 80px;
+  width: 140px;
+  padding: 12px;
+  background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+  font-family: sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  text-align: center;
+  border-radius: 8px;
+  z-index: 15050;
+  display: none;
+  box-shadow: 0 0 24px #ff0, 0 0 40px #f80;
+  animation: demo-ad-pulse 1.2s ease-in-out infinite;
+}
+body:not(.fix-pause) .demo-sidebar-ad {
+  display: block;
+}
+@keyframes demo-ad-pulse {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.05); filter: brightness(1.2); }
+}
+
+.demo-shake-icon {
+  display: inline-block;
+  animation: demo-shake 0.4s ease-in-out infinite;
+}
+body:not(.fix-pause) .demo-shake-icon {
+  animation: demo-shake 0.4s ease-in-out infinite;
+}
+body.fix-pause .demo-shake-icon {
+  animation: none;
+}
+@keyframes demo-shake {
+  0%, 100% { transform: translate(0, 0) rotate(0); }
+  25% { transform: translate(-2px, 1px) rotate(-4deg); }
+  75% { transform: translate(2px, -1px) rotate(4deg); }
+}
+
+/* --- Timer (2.2.2) --- */
+.demo-pressure-timer {
+  display: none;
+  font-family: monospace;
+  font-size: 18px;
+  font-weight: bold;
+  color: #d33;
+  margin: 8px 0;
+  animation: demo-timer-pulse 0.8s ease-in-out infinite;
+}
+body:not(.fix-pause) .demo-pressure-timer {
+  display: block;
+}
+@keyframes demo-timer-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* --- Horizontal scroll trap --- */
+.demo-hscroll {
+  display: none;
+  overflow-x: auto;
+  max-width: 100%;
+  border: 1px dashed #d33;
+  padding: 8px;
+  margin: 12px 0;
+  font-size: 13px;
+}
+body:not(.fix-pause) .demo-hscroll {
+  display: block;
+}
+.demo-hscroll__inner {
+  width: 280%;
+  white-space: nowrap;
+}
+
+/* --- Focus visible (2.4.7) — keep panel usable when “broken” --- */
+body:not(.fix-focus) *:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+body:not(.fix-focus) .demo-toggle-panel *:focus-visible,
+body:not(.fix-focus) .demo-toggle-panel *:focus {
+  outline: 2px solid #3366cc !important;
+  outline-offset: 2px;
+  box-shadow: none !important;
+}
+body:not(.fix-focus) .demo-modal *:focus-visible {
+  outline: 2px solid #3366cc !important;
+  outline-offset: 2px;
+}
+
+/* --- Color contrast (1.4.3) --- */
+body:not(.fix-contrast) #mw-content-text {
+  color: #b4b4b4;
+}
+body:not(.fix-contrast) #mw-content-text a {
+  color: #d0d0f0;
+}
+body:not(.fix-contrast) .wikitable,
+body:not(.fix-contrast) .infobox {
+  color: #b4b4b4;
+}
+
+/* --- Text spacing (1.4.12) --- */
+body:not(.fix-textspacing) #mw-content-text {
+  font-size: 13px;
+  line-height: 1.1;
+  text-align: justify;
+}
+body:not(.fix-textspacing) #mw-content-text p {
+  margin-bottom: 0.15em;
+}
+
+/* --- Semantic “flat” headings (1.3.1) --- */
+body:not(.fix-semantic) #mw-content-text .mw-heading2 {
+  border-bottom: none;
+  margin: 0.6em 0 0.2em;
+}
+body:not(.fix-semantic) #mw-content-text .mw-heading2 h2,
+body:not(.fix-semantic) #mw-content-text .mw-heading3 h3 {
+  font-size: 1em;
+  font-weight: normal;
+  font-family: inherit;
+  color: #202122;
+  padding: 0;
+  border: none;
+  display: inline;
+}
+
+/* --- Skip link broken (2.4.1) --- */
+body:not(.fix-skip) .mw-jump-link {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* --- Form labels hidden (3.3.2) --- */
+body:not(.fix-labels) .demo-form-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- Error message (3.3.1) --- */
+.demo-form-error {
+  color: #b32424;
+  font-family: sans-serif;
+  font-size: 14px;
+  margin-top: 8px;
+  display: none;
+}
+body.fix-errors .demo-form-error[hidden] {
+  display: none;
+}
+body.fix-errors .demo-form-error:not([hidden]) {
+  display: block;
+}
+
+/* --- Video captions indicator (1.2.2) --- */
+.demo-caption-badge {
+  font-family: sans-serif;
+  font-size: 13px;
+  margin-top: 6px;
+  display: none;
+}
+body.fix-captions .demo-caption-badge {
+  display: block;
+}
+
+/* --- Alt text overlays (1.1.1) --- */
+.demo-no-alt-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(200, 0, 0, 0.85);
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  padding: 4px;
+  display: none;
+}
+body:not(.fix-alt) .demo-no-alt-overlay {
+  display: block;
+}
+
+/* --- Fake button vs real (2.1.1) --- */
+.demo-search-btn-fake {
+  display: none;
+  cursor: default;
+  user-select: none;
+}
+body:not(.fix-keyboard) .demo-search-btn-real {
+  display: none !important;
+}
+body:not(.fix-keyboard) .demo-search-btn-fake {
+  display: inline-block !important;
+}
+
+#demo-feedback-form {
+  font-family: sans-serif;
+  font-size: 14px;
+  margin: 0.75em 0 1em;
+}
+#demo-feedback-form input[type="email"] {
+  display: block;
+  margin-top: 6px;
+  padding: 6px 10px;
+  min-width: min(100%, 280px);
+  border: 1px solid #a2a9b1;
+  border-radius: 2px;
+}
+#demo-feedback-form button[type="submit"] {
+  margin-top: 10px;
+  padding: 6px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid #a2a9b1;
+  background: #f8f9fa;
+  border-radius: 2px;
+}
+.demo-fine-print {
+  font-size: 10px;
+  color: #a2a9b1;
+  margin: 0.5em 0 1em;
+}
+body:not(.fix-pause) .demo-fine-print {
+  color: #dde0e5;
+}
+.demo-video {
+  max-width: 100%;
+  height: auto;
+  background: #000;
+}
+
+/* --- Hover-to-reveal alt (fake) --- */
+body.fake-hoveralt .demo-alt-hover-wrap {
+  position: relative;
+}
+body.fake-hoveralt .demo-alt-hover-wrap img {
+  opacity: 0.15;
+}
+body.fake-hoveralt .demo-alt-hover-wrap .demo-alt-hover-tip {
+  display: block;
+}
+.demo-alt-hover-tip {
+  display: none;
+  font-size: 11px;
+  color: #54595d;
+}
+body.fake-hoveralt .demo-alt-hover-wrap:hover img {
+  opacity: 1;
+}
+
+/* --- Colorblind simulation (fake) --- */
+body.fake-colorblind {
+  filter: url("#demo-deuteranopia") url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="f"><feColorMatrix type="matrix" values="0.367 0.861 -0.228 0 0 0.28 0.673 0.047 0 0 -0.012 0.043 0.969 0 0 0 0 0 1 0"/></filter></svg>#f');
+}
+
+/* Simpler fallback filter */
+@supports (filter: contrast(1)) {
+  body.fake-colorblind {
+    filter: contrast(1.1) saturate(0.65) hue-rotate(-15deg);
+  }
+}
+
+/* fake-newtab: handled in JS (target="_blank" on links) */
+
+/* sr-only for fake “remove” */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+body.fake-srremove .sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  clip: auto;
+  overflow: visible;
+  white-space: normal;
+  margin: 0 0 0.5em;
+  font-size: 11px;
+  color: #72777d;
+}
+
+/* --- Force left align (fake) --- */
+body.fake-leftalign #mw-content-text {
+  text-align: left !important;
+}
+body.fake-leftalign .infobox {
+  float: none !important;
+  margin: 1em auto !important;
+}
+
+/* --- Reveal modal --- */
+.demo-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 30000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.demo-modal-overlay[open],
+.demo-modal-overlay.is-open {
+  display: flex;
+}
+.demo-modal {
+  background: #fff;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+  border-radius: 4px;
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+.demo-modal h3 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+.demo-modal__score {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #202122;
+}
+.demo-modal__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+.demo-modal__list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eaecf0;
+  font-size: 13px;
+}
+.demo-modal__list .tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 2px;
+  margin-right: 8px;
+}
+.demo-modal__list .tag--real {
+  background: #d5fdf0;
+  color: #0b5;
+}
+.demo-modal__list .tag--fake {
+  background: #ffe8e8;
+  color: #c00;
+}
+.demo-modal button {
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid #a2a9b1;
+  background: #f8f9fa;
+  border-radius: 2px;
+}
+.demo-modal button:focus-visible {
+  outline: 2px solid #3366cc;
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  body.demo-page {
+    padding-right: 0;
+    padding-bottom: calc(45vh + 12px);
+  }
+  .demo-toggle-panel {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: 45vh;
+    border-left: none;
+    border-top: 1px solid #a2a9b1;
+  }
+  .demo-sidebar-ad {
+    right: 8px;
+    bottom: calc(45vh + 8px);
+  }
+}

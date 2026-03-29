@@ -2,12 +2,19 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1120">
-  <title>Web Content Accessibility Guidelines - Wikipedia</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web Content Accessibility Guidelines - Wikipedia (WCAG demo)</title>
+  <link rel="stylesheet" href="css/demo.css">
+  <link rel="stylesheet" href="css/toggles.css">
   <link rel="icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico">
 </head>
-<body>
+<body class="demo-page">
+
+<div class="demo-cookie-overlay" id="demo-cookie-overlay" data-active="false" aria-hidden="true"></div>
+<div class="demo-cookie-banner" id="demo-cookie-banner" data-active="false" role="dialog" aria-modal="true" aria-labelledby="demo-cookie-title">
+  <p id="demo-cookie-title">This site uses cookies to track your every move. Obviously.</p>
+  <p><button type="button" class="demo-cookie-dismiss" id="demo-cookie-dismiss">Accept</button></p>
+</div>
 
 <a class="mw-jump-link" href="#bodyContent">Jump to content</a>
 
@@ -24,9 +31,11 @@
   </div>
   <div class="vector-header-end">
     <div class="vector-search-box" role="search">
-      <form action="#" class="cdx-search-input">
-        <input type="search" class="cdx-text-input__input" placeholder="Search Wikipedia" aria-label="Search Wikipedia">
-        <button class="cdx-button cdx-search-input__end-button" type="submit">Search</button>
+      <form action="#" class="cdx-search-input" id="demo-search-form">
+        <label class="demo-form-label" for="demo-search-input">Search Wikipedia</label>
+        <input type="search" id="demo-search-input" class="cdx-text-input__input" placeholder="Search Wikipedia" aria-label="Search Wikipedia">
+        <button type="submit" class="cdx-search-input__end-button demo-search-btn-real" id="demo-search-btn">Search</button>
+        <span class="cdx-search-input__end-button demo-search-btn-fake" id="demo-search-btn-fake" role="button">Search</span>
       </form>
     </div>
     <nav class="vector-user-links" aria-label="Personal tools">
@@ -36,6 +45,14 @@
     </nav>
   </div>
 </header>
+
+<div class="demo-seizure-banner" role="img" aria-label="Warning: flashing strip (demo)">FLASH SALE — LOOK HERE — FLASH SALE — LOOK HERE</div>
+<div class="demo-ticker-row" aria-hidden="true">
+  <div class="demo-ticker">Breaking: scrolling text is distracting • Breaking: scrolling text is distracting • Breaking: scrolling text is distracting • </div>
+</div>
+<div class="demo-ticker-row" aria-hidden="true">
+  <div class="demo-ticker demo-ticker--rev">More news you did not ask for • More news you did not ask for • More news you did not ask for • </div>
+</div>
 
 <!-- ===== PAGE CONTAINER ===== -->
 <div class="mw-page-container">
@@ -48,7 +65,7 @@
         <ul class="vector-toc-contents">
           <li class="vector-toc-level-1"><a href="#"><span class="vector-toc-text">(Top)</span></a></li>
           <li class="vector-toc-level-1">
-            <a href="#History"><span class="vector-toc-numb">1</span> <span>History</span></a>
+            <a id="demo-toc-history" href="#History"><span class="vector-toc-numb">1</span> <span>History</span></a>
             <ul>
               <li class="vector-toc-level-2"><a href="#Earlier_guidelines"><span class="vector-toc-numb">1.1</span> <span>Earlier guidelines (1995–1998)</span></a></li>
               <li class="vector-toc-level-2"><a href="#Version_1_history"><span class="vector-toc-numb">1.2</span> <span>Version 1 (1999–2000)</span></a></li>
@@ -107,13 +124,43 @@
 
           <div id="mw-content-text" class="mw-body-content">
 
+            <div class="demo-top-block">
+              <div class="mw-heading mw-heading2"><h2 id="demo_video_heading">Sample video</h2></div>
+              <div class="demo-alt-hover-wrap">
+                <video class="demo-video" controls width="320" height="180" poster="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/W3C%C2%AE_Icon.svg/320px-W3C%C2%AE_Icon.svg.png" aria-label="Sample accessibility video">
+                  <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+                </video>
+                <p class="demo-alt-hover-tip">Hover the video to reveal… something.</p>
+              </div>
+              <p class="demo-caption-badge">Captions: English (demo track)</p>
+
+              <div class="mw-heading mw-heading2"><h2 id="demo_form_heading">Demo feedback form</h2></div>
+              <p><span class="demo-shake-icon" aria-hidden="true">⚠️</span> <span>We definitely read every submission. Trust us.</span></p>
+              <form id="demo-feedback-form" action="#" method="get">
+                <label class="demo-form-label" for="demo-email">Email</label>
+                <input id="demo-email" name="email" type="email" placeholder="you@example.com" autocomplete="email">
+                <button type="submit">Submit</button>
+              </form>
+              <p id="demo-form-error" class="demo-form-error" role="alert" hidden></p>
+
+              <p class="demo-fine-print">By interacting with this demo you agree that fine print is definitely read carefully by everyone.</p>
+              <div class="demo-pressure-timer" aria-hidden="true">Hurry: <span id="demo-timer-display">99</span>s</div>
+              <div class="demo-hscroll">
+                <div class="demo-hscroll__inner">Important: The conformance table below lists WCAG 2 success criteria. If you can read this without horizontal scrolling, Pause/Stop/Hide may be on. Otherwise this box simulates overflow that hides critical information from users who cannot scroll sideways easily.</div>
+              </div>
+            </div>
+
             <!-- INFOBOX -->
             <table class="infobox">
               <tbody>
                 <tr><th colspan="2" class="infobox-above">WCAG</th></tr>
                 <tr><td colspan="2" class="infobox-subheader">Web Content Accessibility Guidelines</td></tr>
                 <tr><td colspan="2" class="infobox-image">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/W3C%C2%AE_Icon.svg/250px-W3C%C2%AE_Icon.svg.png" alt="World Wide Web Consortium (W3C) logo" width="250">
+                  <div class="demo-alt-hover-wrap">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/W3C%C2%AE_Icon.svg/250px-W3C%C2%AE_Icon.svg.png" data-good-alt="World Wide Web Consortium (W3C) logo" alt="" width="250">
+                    <div class="demo-no-alt-overlay" aria-hidden="true">NO ALT TEXT</div>
+                  </div>
+                  <p class="demo-alt-hover-tip">Hover the image to “see” alt text (fake toggle).</p>
                   <div class="infobox-caption"><a href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium">World Wide Web Consortium</a> (W3C) logo</div>
                 </td></tr>
                 <tr><th scope="row" class="infobox-label">Abbreviation</th><td>WCAG</td></tr>
@@ -130,7 +177,7 @@
             </table>
 
             <!-- LEAD -->
-            <p>The <b>Web Content Accessibility Guidelines</b> (<b>WCAG</b>) are part of a series published by the <a href="https://en.wikipedia.org/wiki/Web_Accessibility_Initiative">Web Accessibility Initiative</a> (WAI) of the <a href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium">World Wide Web Consortium</a> (W3C), the main international <a href="https://en.wikipedia.org/wiki/Standards_organization">standards organization</a> for the <a href="https://en.wikipedia.org/wiki/Internet">Internet</a>. They are a set of recommendations for improving <a href="https://en.wikipedia.org/wiki/Web_accessibility">web accessibility</a>, primarily for people with <a href="https://en.wikipedia.org/wiki/Disability">disabilities</a>—but also for all <a href="https://en.wikipedia.org/wiki/User_agent">user agents</a>, including highly limited devices, such as mobile phones. WCAG 2.0 was published in December 2008 and became an <a href="https://en.wikipedia.org/wiki/International_Organization_for_Standardization">ISO</a> standard, ISO/IEC 40500:2012 in October 2012.<sup><a href="#ref3">[3]</a></sup> WCAG 2.2 became a W3C Recommendation on 5 October 2023.<sup><a href="#ref1">[1]</a></sup></p>
+            <p>The <b>Web Content Accessibility Guidelines</b> (<b>WCAG</b>) are part of a series published by the <a id="demo-lead-link" href="https://en.wikipedia.org/wiki/Web_Accessibility_Initiative">Web Accessibility Initiative</a> (WAI) of the <a href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium">World Wide Web Consortium</a> (W3C), the main international <a href="https://en.wikipedia.org/wiki/Standards_organization">standards organization</a> for the <a href="https://en.wikipedia.org/wiki/Internet">Internet</a>. They are a set of recommendations for improving <a href="https://en.wikipedia.org/wiki/Web_accessibility">web accessibility</a>, primarily for people with <a href="https://en.wikipedia.org/wiki/Disability">disabilities</a>—but also for all <a href="https://en.wikipedia.org/wiki/User_agent">user agents</a>, including highly limited devices, such as mobile phones. WCAG 2.0 was published in December 2008 and became an <a href="https://en.wikipedia.org/wiki/International_Organization_for_Standardization">ISO</a> standard, ISO/IEC 40500:2012 in October 2012.<sup><a href="#ref3">[3]</a></sup> WCAG 2.2 became a W3C Recommendation on 5 October 2023.<sup><a href="#ref1">[1]</a></sup></p>
 
             <!-- ===== HISTORY ===== -->
             <div class="mw-heading mw-heading2"><h2 id="History">History</h2></div>
@@ -372,15 +419,12 @@
       </main>
     </div><!-- end mw-content-container -->
 
-    <!-- ===== RIGHT COLUMN (appearance) ===== -->
-    <div class="vector-column-end">
-    </div>
-
   </div>
 </div>
 
 <!-- ===== FOOTER ===== -->
 <footer class="mw-footer">
+  <p class="sr-only">Policies and contact links are listed in the line below.</p>
   <ul class="footer-info">
     <li>This page was last edited on 1 February 2026, at 18:24 (UTC).</li>
     <li>Text is available under the <a href="https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_Creative_Commons_Attribution-ShareAlike_4.0_International_License">Creative Commons Attribution-ShareAlike 4.0 License</a>; additional terms may apply.</li>
@@ -395,10 +439,89 @@
     <li><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
   </ul>
   <ul class="footer-icons">
-    <li><a href="https://www.wikimedia.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.svg" alt="Wikimedia Foundation" width="84" height="29" loading="lazy"></a></li>
-    <li><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/w/resources/assets/poweredby_mediawiki.svg" alt="Powered by MediaWiki" width="88" height="31" loading="lazy"></a></li>
+    <li><a href="https://www.wikimedia.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.svg" data-good-alt="Wikimedia Foundation" alt="" width="84" height="29" loading="lazy"></a></li>
+    <li><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/w/resources/assets/poweredby_mediawiki.svg" data-good-alt="Powered by MediaWiki" alt="" width="88" height="31" loading="lazy"></a></li>
   </ul>
 </footer>
 
+<div class="demo-lang-badge" aria-hidden="true">lang=&quot;en&quot;</div>
+
+<div class="demo-sidebar-ad" role="region" aria-label="Advertisement (demo)">YOU WIN!!! CLICK NOW!!!</div>
+
+<aside class="demo-toggle-panel" aria-label="Accessibility fix toggles for class demo">
+  <div class="demo-toggle-panel__header">
+    <h2>Fix the page</h2>
+    <p class="demo-toggle-panel__intro">Turn toggles on to repair issues. Five are decoys — the reveal lists which are real WCAG-related fixes.</p>
+  </div>
+  <ul class="demo-toggle-list">
+    <li class="demo-toggle-item">
+      <label><span class="demo-switch"><input type="checkbox" id="toggle-contrast"><span class="demo-switch__ui" aria-hidden="true"></span></span> Color Contrast <span class="desc">1.4.3 — text and links readable</span></label>
+    </li>
+    <li class="demo-toggle-item">
+      <label><span class="demo-switch"><input type="checkbox" id="toggle-focus"><span class="demo-switch__ui" aria-hidden="true"></span></span> Focus Indicators <span class="desc">2.4.7 — visible focus</span></label>
+    </li>
+    <li class="demo-toggle-item">
+      <label><span class="demo-switch"><input type="checkbox" id="toggle-alt"><span class="demo-switch__ui" aria-hidden="true"></span></span> Alt Text <span class="desc">1.1.1 — image descriptions</span></label>
+    </li>
+    <li class="demo-toggle-item">
+      <label><span class="demo-switch"><input type="checkbox" id="toggle-semantic"><span class="demo-switch__ui" aria-hidden="true"></span></span> Semantic HTML <span class="desc">1.3.1 — structure &amp; landmarks</span></label>
+    </li>
+    <li class="demo-toggle-item">
+      <label><span class="demo-switch"><input type="checkbox" id="toggle-taborder"><span class="demo-switch__ui" aria-hidden="true"></span></span> Tab Order <span class="desc">2.4.3 — focus order</span></label>
+    </li>
+    <li class="demo-toggle-item">
+      <label><span class="demo-switch"><input type="checkbox" id="toggle-skip"><span class="demo-switch__ui" aria-hidden="true"></span></span> Skip Navigation <span class="desc">2.4.1 — bypass blocks</span></label>
+    </li>
+    <li class="demo-toggle-item">
+      <label><span class="demo-switch"><input type="checkbox" id="toggle-labels"><span class="demo-switch__ui" aria-hidden="true"></span></span> Form Labels <span class="desc">3.3.2 — labels &amp; search</span></label>
+    </li>
+    <li class="demo-toggle-item">
+      <label><span class="demo-switch"><input type="checkbox" id="toggle-errors"><span class="demo-switch__ui" aria-hidden="true"></span></span> Error Identification <span class="desc">3.3.1 — form errors</span></label>
+    </li>
+    <li class="demo-toggle-item">
+      <label><span class="demo-switch"><input type="checkbox" id="toggle-captions"><span class="demo-switch__ui" aria-hidden="true"></span></span> Video Captions <span class="desc">1.2.2 — caption indicator</span></label>
+    </li>
+    <li class="demo-toggle-item">
+      <label><span class="demo-switch"><input type="checkbox" id="toggle-pause"><span class="demo-switch__ui" aria-hidden="true"></span></span> Pause / Stop / Hide <span class="desc">2.2.2 — motion &amp; distractions</span></label>
+    </li>
+    <li class="demo-toggle-item">
+      <label><span class="demo-switch"><input type="checkbox" id="toggle-keyboard"><span class="demo-switch__ui" aria-hidden="true"></span></span> Keyboard Accessible <span class="desc">2.1.1 — search control</span></label>
+    </li>
+    <li class="demo-toggle-item">
+      <label><span class="demo-switch"><input type="checkbox" id="toggle-lang"><span class="demo-switch__ui" aria-hidden="true"></span></span> Language of Page <span class="desc">3.1.1 — lang attribute</span></label>
+    </li>
+    <li class="demo-toggle-item">
+      <label><span class="demo-switch"><input type="checkbox" id="toggle-textspacing"><span class="demo-switch__ui" aria-hidden="true"></span></span> Text Spacing <span class="desc">1.4.12 — readable line &amp; paragraph spacing</span></label>
+    </li>
+    <li class="demo-toggle-item">
+      <label><span class="demo-switch"><input type="checkbox" id="toggle-fake-colorblind"><span class="demo-switch__ui" aria-hidden="true"></span></span> Colorblind Simulation <span class="desc">Not a WCAG requirement</span></label>
+    </li>
+    <li class="demo-toggle-item">
+      <label><span class="demo-switch"><input type="checkbox" id="toggle-fake-hoveralt"><span class="demo-switch__ui" aria-hidden="true"></span></span> Hover-to-Reveal Alt <span class="desc">Decoy — screen readers do not hover</span></label>
+    </li>
+    <li class="demo-toggle-item">
+      <label><span class="demo-switch"><input type="checkbox" id="toggle-fake-newtab"><span class="demo-switch__ui" aria-hidden="true"></span></span> All Links New Tab <span class="desc">Decoy — often worse for accessibility</span></label>
+    </li>
+    <li class="demo-toggle-item">
+      <label><span class="demo-switch"><input type="checkbox" id="toggle-fake-srremove"><span class="demo-switch__ui" aria-hidden="true"></span></span> “Hidden Text is Bad” <span class="desc">Decoy — removes .sr-only help</span></label>
+    </li>
+    <li class="demo-toggle-item">
+      <label><span class="demo-switch"><input type="checkbox" id="toggle-fake-leftalign"><span class="demo-switch__ui" aria-hidden="true"></span></span> Force Left Align <span class="desc">Decoy — breaks layout for no WCAG win</span></label>
+    </li>
+  </ul>
+  <div class="demo-toggle-panel__actions">
+    <button type="button" id="demo-reveal-btn">Reveal answers</button>
+  </div>
+</aside>
+
+<div class="demo-modal-overlay" id="demo-reveal-modal" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title" aria-hidden="true">
+  <div class="demo-modal">
+    <h3 id="demo-modal-title">Answers &amp; score</h3>
+    <div id="demo-modal-body"></div>
+    <button type="button" id="demo-modal-close">Close</button>
+  </div>
+</div>
+
+<script src="js/toggles.js" defer></script>
 </body>
 </html>

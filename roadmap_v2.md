@@ -11,7 +11,7 @@ A 30-minute class presentation on **Accessibility and Inclusiveness in Website D
 
 ## What's Been Built
 
-### ✅ Clean Wikipedia Base Page (`demo.html` + `css/demo.css`)
+### ✅ Clean Wikipedia Base Page (`demo.html` + `css/demo.css`; legacy `styles.css` imports `css/demo.css`)
 A faithful recreation of the real Wikipedia WCAG article using the Vector 2022 skin:
 - Sticky header with Wikipedia logo, search bar, user links
 - CSS Grid two-column layout with sticky TOC sidebar on the left
@@ -21,7 +21,7 @@ A faithful recreation of the real Wikipedia WCAG article using the Vector 2022 s
 - Proper semantic HTML: `<header>`, `<main>`, `<nav>`, `<footer>`, real headings, `<table>` with `<caption>` and `scope`, labeled forms
 - Categories bar, footer with Wikimedia/MediaWiki logos
 
-### ✅ ROADMAP.md (original — now replaced by this file)
+### ✅ Roadmap (`roadmap_v2.md`; older notes may be in other files)
 
 ### ✅ Research Completed
 - WCAG 2 standards via W3C and Wikipedia
@@ -32,11 +32,11 @@ A faithful recreation of the real Wikipedia WCAG article using the Vector 2022 s
 
 ## What Needs to Be Built
 
-### Phase 1 — Demo Layer (toggle panel + broken states)
+### Phase 1 — Demo Layer (toggle panel + broken states) — **in progress / largely implemented**
 
 Take the clean Wikipedia base and layer on:
 
-**Toggle Panel UI** (fixed sidebar, right side)
+**Toggle Panel UI** (fixed sidebar, right side) — **done**
 - 18 toggles total: 13 real WCAG standards + 5 fakes
 - Toggle switch UI with descriptions
 - "Reveal Answers" button with scored results modal
@@ -69,11 +69,11 @@ Take the clean Wikipedia base and layer on:
 | 17 | Hidden Text is Always Bad | Removes .sr-only text — actually makes page LESS accessible |
 | 18 | All Text Must Be Left-Aligned | Forces everything left — breaks visual hierarchy, no WCAG requirement |
 
-**Broken State Elements to Add:**
+**Broken State Elements to Add:** — **implemented on `demo.html`**
 - Cookie consent popup blocking the page (nearly invisible dismiss button)
 - Flashing seizure-risk banner (fast color cycling)
 - Two scrolling tickers going opposite directions
-- Walls of dense justified text with no paragraph spacing
+- Walls of dense justified text with no paragraph spacing (via Text Spacing toggle off)
 - Red "NO ALT TEXT" overlays on images
 - Countdown timer pressuring form completion
 - Glowing/pulsing sidebar ad
@@ -89,10 +89,11 @@ Take the clean Wikipedia base and layer on:
 
 | Page | Purpose | Status |
 |------|---------|--------|
-| `index.html` | Home page: WCAG overview, POUR principles, conformance levels, links to demo | Not started |
-| `demo.html` | Interactive toggle demo (Wikipedia recreation) | Base built, needs demo layer |
+| `demo.html` | Interactive toggle demo (Wikipedia recreation); primary entry for the project | **Base + demo layer** (`css/toggles.css`, `js/toggles.js`) |
 | `good-example.html` | A properly accessible site with annotations explaining what's right | Not started |
 | `bad-example.html` | An intentionally bad accessibility attempt with callouts | Not started |
+
+*(Optional: for GitHub Pages default document, copy or symlink `demo.html` → `index.html`, or set Pages to serve `demo.html`.)*
 
 ---
 
@@ -130,7 +131,6 @@ Take the clean Wikipedia base and layer on:
 | Demo page — broken states + toggle panel HTML | |
 | Demo page — toggle JS logic (13 real) | |
 | Demo page — toggle JS logic (5 fakes + reveal) | |
-| Home page content + design | |
 | Good example page | |
 | Bad example page | |
 | CSS / overall visual polish | |
@@ -144,15 +144,16 @@ Take the clean Wikipedia base and layer on:
 
 ```
 WCAG_DEMO/
-├── index.html              ← Home page (WCAG overview)
-├── demo.html               ← Interactive demo (Wikipedia recreation)
+├── demo.html               ← Interactive demo (Wikipedia recreation); main entry
 ├── good-example.html       ← Accessible example with annotations
 ├── bad-example.html        ← Bad accessibility example with callouts
+├── styles.css              ← Imports css/demo.css (backward compat)
 ├── css/
-│   └── demo.css            ← Wikipedia Vector 2022 skin styles
+│   ├── demo.css            ← Wikipedia Vector 2022 skin styles
+│   └── toggles.css         ← Demo panel, broken/fixed states, modal
 ├── js/
-│   └── toggles.js          ← Toggle logic, reveal, timer, popup
-├── ROADMAP.md              ← This file
+│   └── toggles.js          ← Toggle logic, reveal, timer, cookie, form
+├── roadmap_v2.md           ← This file
 └── README.md               ← Project description for GitHub
 ```
 
@@ -169,6 +170,7 @@ WCAG_DEMO/
 - Wikipedia recreation: built full Vector 2022 skin layout with complete WCAG article content
 - Broken state design: designed 10+ visual/interaction violations for the demo layer
 - Restoration design: ensured all real toggles restore page to clean, accessible Wikipedia state
+- Implementation pass: added `css/toggles.css`, `js/toggles.js`, wired `demo.html` (panel, cookie, distractions, form, video, captions badge, alt overlays); moved base skin to `css/demo.css` with `styles.css` import shim; removed spare `index.html` — use `demo.html` as the main page
 
 ---
 

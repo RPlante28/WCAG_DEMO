@@ -505,7 +505,8 @@ body.fake-hoveralt .demo-alt-hover-wrap {
   position: relative;
 }
 body.fake-hoveralt .demo-alt-hover-wrap img {
-  opacity: 0.15;
+  opacity: 0.25;
+  cursor: help;
 }
 body.fake-hoveralt .demo-alt-hover-wrap .demo-alt-hover-tip {
   display: block;
@@ -520,13 +521,18 @@ body.fake-hoveralt .demo-alt-hover-wrap:hover img {
 }
 
 /* --- Colorblind simulation (fake) --- */
-body.fake-colorblind {
-  filter: url("#demo-deuteranopia") url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="f"><feColorMatrix type="matrix" values="0.367 0.861 -0.228 0 0 0.28 0.673 0.047 0 0 -0.012 0.043 0.969 0 0 0 0 0 1 0"/></filter></svg>#f');
+body.fake-colorblind .vector-header,
+body.fake-colorblind .mw-page-container,
+body.fake-colorblind .mw-footer {
+  filter: url("#demo-deuteranopia")
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="f"><feColorMatrix type="matrix" values="0.367 0.861 -0.228 0 0 0.28 0.673 0.047 0 0 -0.012 0.043 0.969 0 0 0 0 0 1 0"/></filter></svg>#f');
 }
 
 /* Simpler fallback filter */
 @supports (filter: contrast(1)) {
-  body.fake-colorblind {
+  body.fake-colorblind .vector-header,
+  body.fake-colorblind .mw-page-container,
+  body.fake-colorblind .mw-footer {
     filter: contrast(1.1) saturate(0.65) hue-rotate(-15deg);
   }
 }
@@ -614,6 +620,25 @@ body.fake-darkmode .mw-footer {
 body.fake-darkmode .mw-heading2 {
   border-bottom-color: #0f3460;
 }
+body.fake-darkmode .firstHeading,
+body.fake-darkmode .mw-heading2 h2,
+body.fake-darkmode .mw-heading3 h3 {
+  color: #f0f2ff;
+}
+body.fake-darkmode #siteSub {
+  color: #b4b8d3;
+}
+body.fake-darkmode .vector-toc-contents a:hover {
+  background: #0f3460;
+  color: #eef1ff;
+}
+body.fake-darkmode .vector-menu-tabs a:hover {
+  background: #0f3460;
+  color: #eef1ff;
+}
+body.fake-darkmode a:hover {
+  color: #a3c7ff;
+}
 body.fake-darkmode .demo-toggle-panel {
   background: #1e1e2f;
   border-color: #0f3460;
@@ -643,6 +668,19 @@ body.fake-darkmode .demo-toggle-panel__actions {
 }
 body.fake-darkmode .reflist {
   color: #b0b0d0;
+}
+body.fake-darkmode .demo-cookie-banner {
+  background: #1a223f;
+  color: #edf0ff;
+  border-color: #2a3b73;
+}
+body.fake-darkmode .demo-cookie-dismiss {
+  color: #d7ddff;
+  background: #2a3b73;
+  border-color: #3a4f8f;
+}
+body.fake-darkmode .demo-sidebar-ad {
+  filter: saturate(0.8) brightness(0.95);
 }
 
 /* --- Force left align (fake) --- */

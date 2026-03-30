@@ -189,6 +189,18 @@
     });
   }
 
+  function applyHoverAltTooltip() {
+    var imgs = document.querySelectorAll("img[data-good-alt]");
+    imgs.forEach(function (img) {
+      var good = img.getAttribute("data-good-alt") || "";
+      if (isFakeOn("hoveralt")) {
+        img.setAttribute("title", good);
+      } else {
+        img.removeAttribute("title");
+      }
+    });
+  }
+
   function applyNewTabLinks() {
     var links = document.querySelectorAll(
       '#mw-content-text a[href^="http"], .mw-footer a[href^="http"], .vector-header a[href^="http"]'
@@ -233,6 +245,7 @@
     applyLang();
     applySkipLink();
     applyAltImages();
+    applyHoverAltTooltip();
     applyNewTabLinks();
     applySearchKeyboard();
     applyTabOrder();
@@ -348,16 +361,30 @@
   function initForm() {
     var form = document.getElementById("demo-feedback-form");
     var err = document.getElementById("demo-form-error");
+    var email = document.getElementById("demo-email");
     if (!form || !err) return;
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      if (!email) {
+        err.hidden = true;
+        return;
+      }
+
+      var emailVal = String(email.value || "").trim();
+      var valid = emailVal.length > 0 && email.checkValidity();
+
       if (isRealOn("errors")) {
-        err.hidden = false;
-        err.textContent =
-          "Please enter a valid email address. This message is visible because Error Identification is on.";
+        if (valid) {
+          err.hidden = true;
+          err.textContent = "";
+        } else {
+          err.hidden = false;
+          err.textContent = "Please enter a valid email address.";
+        }
       } else {
         err.hidden = true;
+        err.textContent = "";
       }
     });
   }

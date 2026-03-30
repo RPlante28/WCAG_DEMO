@@ -20,7 +20,7 @@
     "textspacing",
   ];
 
-  var FAKE_KEYS = ["colorblind", "hoveralt", "newtab", "srremove", "leftalign"];
+  var FAKE_KEYS = ["colorblind", "hoveralt", "newtab", "srremove", "leftalign", "darkmode"];
 
   var REAL_LABELS = {
     contrast: "Color Contrast (1.4.3)",
@@ -44,6 +44,7 @@
     newtab: "All Links Open in New Tab",
     srremove: "Hidden Text is Always Bad",
     leftalign: "All Text Must Be Left-Aligned",
+    darkmode: "Dark Mode",
   };
 
   var state = {
@@ -410,3 +411,4 @@
     init();
   }
 })();
+

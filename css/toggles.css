@@ -326,7 +326,7 @@ body:not(.fix-pause) .demo-hscroll {
   white-space: nowrap;
 }
 
-/* --- Focus visible (2.4.7) — keep panel usable when “broken” --- */
+/* --- Focus visible (2.4.7) — keep panel usable when "broken" --- */
 body:not(.fix-focus) *:focus {
   outline: none !important;
   box-shadow: none !important;
@@ -364,7 +364,7 @@ body:not(.fix-textspacing) #mw-content-text p {
   margin-bottom: 0.15em;
 }
 
-/* --- Semantic “flat” headings (1.3.1) --- */
+/* --- Semantic "flat" headings (1.3.1) --- */
 body:not(.fix-semantic) #mw-content-text .mw-heading2 {
   border-bottom: none;
   margin: 0.6em 0 0.2em;
@@ -533,7 +533,7 @@ body.fake-colorblind {
 
 /* fake-newtab: handled in JS (target="_blank" on links) */
 
-/* sr-only for fake “remove” */
+/* sr-only for fake "remove" */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -555,6 +555,94 @@ body.fake-srremove .sr-only {
   margin: 0 0 0.5em;
   font-size: 11px;
   color: #72777d;
+}
+
+/* --- Dark mode (fake) --- */
+body.fake-darkmode {
+  background: #1a1a2e;
+  color: #e0e0e0;
+}
+body.fake-darkmode .vector-header {
+  background: #16213e;
+  border-color: #0f3460;
+}
+body.fake-darkmode .vector-header,
+body.fake-darkmode .vector-header a,
+body.fake-darkmode .vector-header .cdx-text-input__input {
+  color: #e0e0e0;
+}
+body.fake-darkmode .cdx-text-input__input {
+  background: #0f3460;
+  border-color: #1a1a5e;
+}
+body.fake-darkmode .vector-toc {
+  background: #16213e;
+}
+body.fake-darkmode .vector-toc,
+body.fake-darkmode .vector-toc a {
+  color: #b0b0d0;
+}
+body.fake-darkmode #mw-content-text {
+  color: #d0d0d0;
+}
+body.fake-darkmode #mw-content-text a {
+  color: #7da8e8;
+}
+body.fake-darkmode .wikitable {
+  background: #16213e;
+  color: #d0d0d0;
+  border-color: #0f3460;
+}
+body.fake-darkmode .wikitable th {
+  background: #0f3460;
+  color: #e0e0e0;
+  border-color: #1a1a5e;
+}
+body.fake-darkmode .wikitable td {
+  border-color: #1a1a5e;
+}
+body.fake-darkmode .infobox {
+  background: #16213e;
+  border-color: #0f3460;
+  color: #d0d0d0;
+}
+body.fake-darkmode .mw-footer {
+  background: #16213e;
+  border-color: #0f3460;
+  color: #b0b0d0;
+}
+body.fake-darkmode .mw-heading2 {
+  border-bottom-color: #0f3460;
+}
+body.fake-darkmode .demo-toggle-panel {
+  background: #1e1e2f;
+  border-color: #0f3460;
+}
+body.fake-darkmode .demo-toggle-panel__header {
+  background: #16213e;
+  border-color: #0f3460;
+}
+body.fake-darkmode .demo-toggle-panel__header h2 {
+  color: #e0e0e0;
+}
+body.fake-darkmode .demo-toggle-panel__intro {
+  color: #a0a0c0;
+}
+body.fake-darkmode .demo-toggle-item {
+  border-color: #2a2a4a;
+}
+body.fake-darkmode .demo-toggle-item label {
+  color: #e0e0e0;
+}
+body.fake-darkmode .demo-toggle-item .desc {
+  color: #8888aa;
+}
+body.fake-darkmode .demo-toggle-panel__actions {
+  background: #16213e;
+  border-color: #0f3460;
+}
+body.fake-darkmode .reflist {
+  color: #b0b0d0;
 }
 
 /* --- Force left align (fake) --- */
@@ -661,3 +749,4 @@ body.fake-leftalign .infobox {
     bottom: calc(45vh + 8px);
   }
 }
+
